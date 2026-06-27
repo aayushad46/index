@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aayush Adhikari — SEO & Digital Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --blue: #1a8fe3;
+  --blue-hover: #0f6bb5;
+  --blue-light: #e6f4fd;
+  --blue-border: #b5d4f4;
+}
+
+[data-theme="light"] {
+  --bg: #ffffff;
+  --bg-alt: #f7f7f6;
+  --surface: #ffffff;
+  --surface-2: #f2f2f0;
+  --text-primary: #111111;
+  --text-secondary: #555555;
+  --text-muted: #999999;
+  --border: rgba(0,0,0,0.1);
+  --border-strong: rgba(0,0,0,0.18);
+  --nav-bg: rgba(255,255,255,0.92);
+  --card-shadow: rgba(26,143,227,0.08);
+  --toggle-color: #555;
+}
+
+[data-theme="dark"] {
+  --bg: #0f0f0f;
+  --bg-alt: #161616;
+  --surface: #1a1a1a;
+  --surface-2: #222222;
+  --text-primary: #f0f0f0;
+  --text-secondary: #a0a0a0;
+  --text-muted: #555555;
+  --border: rgba(255,255,255,0.08);
+  --border-strong: rgba(255,255,255,0.15);
+  --nav-bg: rgba(15,15,15,0.92);
+  --card-shadow: rgba(26,143,227,0.12);
+  --toggle-color: #ccc;
+  --blue-light: rgba(26,143,227,0.12);
+  --blue-border: rgba(26,143,227,0.3);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 58px;
+  transition: background 0.3s, border-color 0.3s;
+}
+.nav-left { display: flex; align-items: center; gap: 2.5rem; }
+.nav-logo {
+  font-size: 15px; font-weight: 600;
+  color: var(--text-primary); letter-spacing: -0.3px;
+  text-decoration: none; transition: color 0.3s;
+}
+.nav-logo span { color: var(--blue); }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  font-size: 13px; color: var(--text-secondary);
+  text-decoration: none; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--blue); }
+
+.theme-toggle {
+  display: flex; align-items: center; gap: 7px;
+  background: none; border: 1px solid var(--border-strong);
+  border-radius: 20px; padding: 6px 14px;
+  cursor: pointer; font-size: 13px; font-weight: 500;
+  color: var(--toggle-color); font-family: inherit;
+  transition: border-color 0.2s, color 0.2s;
+}
+.theme-toggle:hover { border-color: var(--blue); color: var(--blue); }
+.theme-toggle i { font-size: 15px; }
+
+/* LAYOUT */
+.container { max-width: 920px; margin: 0 auto; padding: 0 2.5rem; }
+section { padding: 5.5rem 0; }
+hr.divider { border: none; border-top: 1px solid var(--border); transition: border-color 0.3s; }
+
+/* HERO */
+.hero { padding: 5.5rem 0 5rem; }
+
+.hero-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.hero-left { flex: 1; min-width: 0; }
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--blue-light); color: var(--blue);
+  font-size: 12px; font-weight: 500; padding: 5px 14px;
+  border-radius: 20px; margin-bottom: 1.75rem;
+  border: 1px solid var(--blue-border);
+  transition: background 0.3s, border-color 0.3s;
+}
+.hero-badge .dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--blue); animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.35} }
+
+.hero h1 {
+  font-size: 52px; font-weight: 600; line-height: 1.1;
+  letter-spacing: -1.8px; margin-bottom: 1rem;
+  color: var(--text-primary); transition: color 0.3s;
+}
+.hero h1 .name { color: var(--blue); display: block; }
+
+.hero-role-line {
+  font-size: 18px; font-weight: 500;
+  color: var(--text-secondary); margin-bottom: 1.5rem;
+  min-height: 1.6em; transition: color 0.3s;
+}
+.hero-role-line .typed-text { color: var(--blue); }
+.hero-role-line .cursor {
+  display: inline-block; width: 2px; height: 1em;
+  background: var(--blue); margin-left: 2px;
+  vertical-align: middle; animation: blink 1s infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+.hero-bio {
+  font-size: 15px; color: var(--text-secondary);
+  line-height: 1.85; margin-bottom: 1.75rem;
+  max-width: 520px; transition: color 0.3s;
+}
+
+.hero-pills {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2.25rem;
+}
+.hero-pill {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 12px; font-weight: 500;
+  padding: 5px 12px; border-radius: 20px;
+  border: 1px solid var(--border-strong);
+  color: var(--text-secondary);
+  background: var(--surface-2);
+  transition: border-color 0.2s, color 0.2s, background 0.3s;
+  cursor: default;
+}
+.hero-pill i { font-size: 13px; color: var(--blue); }
+.hero-pill:hover { border-color: var(--blue); color: var(--blue); }
+
+.cta-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+/* HERO RIGHT */
+.hero-right {
+  flex-shrink: 0;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 14px;
+  width: 210px;
+}
+
+.avatar-card {
+  width: 210px; height: 210px;
+  border-radius: 24px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface-2);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  transition: background 0.3s, border-color 0.3s;
+}
+.avatar-glow {
+  position: absolute; width: 140px; height: 140px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(26,143,227,0.22) 0%, transparent 70%);
+  pointer-events: none;
+}
+.avatar-initials {
+  font-size: 54px; font-weight: 600;
+  color: var(--blue); letter-spacing: -2px; z-index: 1;
+}
+.avatar-ring {
+  position: absolute; inset: 0; border-radius: 24px;
+  background: linear-gradient(135deg, rgba(26,143,227,0.3) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-mini-stats {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 10px; width: 210px;
+}
+.mini-stat {
+  background: var(--surface-2); border: 1px solid var(--border);
+  border-radius: 12px; padding: 12px 10px;
+  text-align: center;
+  transition: background 0.3s, border-color 0.3s;
+}
+.mini-stat-num {
+  font-size: 20px; font-weight: 600;
+  color: var(--blue); line-height: 1;
+}
+.mini-stat-label {
+  font-size: 11px; color: var(--text-muted);
+  margin-top: 3px; transition: color 0.3s;
+}
+
+/* BUTTONS */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--blue); color: #fff;
+  font-size: 14px; font-weight: 500; padding: 11px 24px;
+  border-radius: 8px; text-decoration: none;
+  border: none; cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  font-family: inherit;
+}
+.btn-primary:hover { background: var(--blue-hover); transform: translateY(-1px); }
+
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: transparent; color: var(--text-primary);
+  font-size: 14px; font-weight: 500; padding: 11px 24px;
+  border-radius: 8px; text-decoration: none;
+  border: 1px solid var(--border-strong); cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, transform 0.15s, background 0.3s;
+  font-family: inherit;
+}
+.btn-outline:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-1px); }
+
+/* SECTION HEADER */
+.section-label {
+  font-size: 11px; font-weight: 600; color: var(--blue);
+  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px;
+}
+.section-title {
+  font-size: 30px; font-weight: 600; letter-spacing: -0.7px;
+  margin-bottom: 6px; color: var(--text-primary); transition: color 0.3s;
+}
+.section-sub { font-size: 14px; color: var(--text-secondary); margin-bottom: 2.5rem; transition: color 0.3s; }
+
+/* ABOUT */
+.about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 2.5rem; align-items: start; }
+.about-text { font-size: 15px; color: var(--text-secondary); line-height: 1.85; transition: color 0.3s; }
+.about-text p + p { margin-top: 1rem; }
+.about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.stat-card {
+  background: var(--surface-2); border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.25rem 1.25rem 1rem;
+  transition: background 0.3s, border-color 0.3s;
+}
+.stat-num { font-size: 30px; font-weight: 600; color: var(--blue); line-height: 1; margin-bottom: 5px; }
+.stat-label { font-size: 12px; color: var(--text-secondary); transition: color 0.3s; }
+
+/* SKILLS */
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; }
+.skill-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.4rem 1.25rem;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s, background 0.3s;
+}
+.skill-card:hover {
+  border-color: var(--blue); transform: translateY(-3px);
+  box-shadow: 0 8px 24px var(--card-shadow);
+}
+.skill-icon { font-size: 24px; color: var(--blue); margin-bottom: 12px; display: block; }
+.skill-name { font-size: 14px; font-weight: 600; margin-bottom: 5px; color: var(--text-primary); transition: color 0.3s; }
+.skill-desc { font-size: 12.5px; color: var(--text-secondary); line-height: 1.6; transition: color 0.3s; }
+
+/* SERVICES */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.service-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.6rem 1.4rem;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s, background 0.3s;
+}
+.service-card:hover {
+  border-color: var(--blue); transform: translateY(-3px);
+  box-shadow: 0 8px 24px var(--card-shadow);
+}
+.service-icon-wrap {
+  width: 44px; height: 44px; border-radius: 8px;
+  background: var(--blue-light); display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1.1rem; font-size: 22px; color: var(--blue);
+  transition: background 0.3s;
+}
+.service-name { font-size: 15px; font-weight: 600; margin-bottom: 7px; color: var(--text-primary); transition: color 0.3s; }
+.service-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.65; transition: color 0.3s; }
+
+/* CONNECT */
+.social-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.social-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--surface); border: 1px solid var(--border-strong);
+  border-radius: 8px; padding: 11px 20px;
+  font-size: 13px; font-weight: 500; color: var(--text-primary);
+  text-decoration: none; transition: border-color 0.2s, color 0.2s, transform 0.15s, background 0.3s;
+  font-family: inherit;
+}
+.social-link:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-2px); }
+.social-link i { font-size: 17px; }
+
+/* FOOTER */
+footer {
+  text-align: center; padding: 2.5rem;
+  font-size: 13px; color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  background: var(--bg-alt);
+  transition: background 0.3s, border-color 0.3s, color 0.3s;
+}
+footer span { color: var(--blue); font-weight: 500; }
+
+/* RESPONSIVE */
+@media (max-width: 720px) {
+  .hero-inner { flex-direction: column; }
+  .hero-right { display: none; }
+  .hero h1 { font-size: 36px; }
+  nav { padding: 0 1.25rem; }
+  .container { padding: 0 1.25rem; }
+  .nav-links { gap: 1.25rem; }
+  section { padding: 4rem 0; }
+  .theme-toggle span { display: none; }
+  .about-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <a class="nav-logo" href="#">Aayush<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#connect">Connect</a></li>
+    </ul>
+  </div>
+  <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle theme">
+    <i class="ti ti-moon" id="themeIcon"></i>
+    <span id="themeLabel">Dark</span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<div class="container">
+  <div class="hero">
+    <div class="hero-inner">
+
+      <!-- LEFT -->
+      <div class="hero-left">
+        <div class="hero-badge"><span class="dot"></span> Available for freelance work</div>
+        <h1>Hi, I'm<span class="name">Aayush Adhikari</span></h1>
+        <p class="hero-bio">With a background spanning computer networking, web development, and digital marketing, I bring a uniquely technical perspective to SEO that most marketers simply don't have. Currently working in the SaaS space — turning search into serious business growth.</p>
+        <div class="hero-pills">
+          <span class="hero-pill"><i class="ti ti-search"></i> Technical SEO</span>
+          <span class="hero-pill"><i class="ti ti-trending-up"></i> Organic Growth</span>
+          <span class="hero-pill"><i class="ti ti-code"></i> Web Development</span>
+          <span class="hero-pill"><i class="ti ti-network"></i> Networking</span>
+          <span class="hero-pill"><i class="ti ti-speakerphone"></i> Digital Marketing</span>
+          <span class="hero-pill"><i class="ti ti-brush"></i> Creative Design</span>
+        </div>
+        <div class="cta-row">
+          <a href="https://linkedin.com/in/aayushadhikari46" class="btn-primary" target="_blank">
+            <i class="ti ti-brand-linkedin"></i> Let's Talk
+          </a>
+          <a href="mailto:aayushad91@gmail.com" class="btn-outline">
+            <i class="ti ti-mail"></i> aayushad91@gmail.com
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="hero-right">
+        <div class="avatar-card">
+          <div class="avatar-ring"></div>
+          <div class="avatar-glow"></div>
+          <div class="avatar-initials">AA</div>
+        </div>
+        
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ABOUT -->
+<div class="container">
+  <section id="about">
+    <div class="section-label">About me</div>
+    <div class="section-title">The person behind the strategy</div>
+    <p class="section-sub">A rare mix of technical depth and marketing precision</p>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I started my career in network engineering at an ISP — understanding how the internet actually works at the infrastructure level. That technical foundation gave me a lens most digital marketers never develop.</p>
+        <p>Over time, I expanded into web development, creative design, and eventually digital marketing. Today, I channel all of that into SEO for SaaS brands — building strategies that are not just data-driven, but technically sound from the ground up.</p>
+      </div>
+      <div class="about-stats">
+        <div class="stat-card"><div class="stat-num">3+</div><div class="stat-label">Years of experience</div></div>
+        <div class="stat-card"><div class="stat-num">SaaS</div><div class="stat-label">Current focus</div></div>
+        <div class="stat-card"><div class="stat-num">4</div><div class="stat-label">Core skill areas</div></div>
+        <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">Services offered</div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<hr class="divider">
+
+<!-- SKILLS -->
+<div class="container">
+  <section id="skills">
+    <div class="section-label">Skills</div>
+    <div class="section-title">What I bring to the table</div>
+    <p class="section-sub">A well-rounded skill set built across multiple disciplines</p>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <i class="ti ti-network skill-icon"></i>
+        <div class="skill-name">Computer networking</div>
+        <div class="skill-desc">Deep understanding of internet infrastructure, protocols, and how the web works at its core.</div>
+      </div>
+      <div class="skill-card">
+        <i class="ti ti-code skill-icon"></i>
+        <div class="skill-name">Web development</div>
+        <div class="skill-desc">Building fast, clean, well-structured websites from scratch using modern web technologies.</div>
+      </div>
+      <div class="skill-card">
+        <i class="ti ti-chart-bar skill-icon"></i>
+        <div class="skill-name">Digital marketing</div>
+        <div class="skill-desc">Full-funnel marketing strategy including SEO, content, and organic growth for SaaS brands.</div>
+      </div>
+      <div class="skill-card">
+        <i class="ti ti-brush skill-icon"></i>
+        <div class="skill-name">Creative design</div>
+        <div class="skill-desc">Crafting visually compelling designs that communicate clearly and leave a lasting impression.</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<hr class="divider">
+
+<!-- SERVICES -->
+<div class="container">
+  <section id="services">
+    <div class="section-label">Services</div>
+    <div class="section-title">How I can help you</div>
+    <p class="section-sub">End-to-end solutions tailored to your growth goals</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon-wrap"><i class="ti ti-code-dots"></i></div>
+        <div class="service-name">Web development</div>
+        <div class="service-desc">Custom websites built with clean code, fast load times, and SEO-ready architecture from day one.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon-wrap"><i class="ti ti-search"></i></div>
+        <div class="service-name">SEO</div>
+        <div class="service-desc">Technical audits, keyword strategy, on-page optimization, and content planning that drives real organic growth.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon-wrap"><i class="ti ti-speakerphone"></i></div>
+        <div class="service-name">Digital marketing</div>
+        <div class="service-desc">Holistic digital strategy covering content, analytics, and multi-channel campaigns to grow your brand online.</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<hr class="divider">
+
+<!-- CONNECT -->
+<div class="container">
+  <section id="connect">
+    <div class="section-label">Connect</div>
+    <div class="section-title">Let's work together</div>
+    <p class="section-sub">Find me on the platforms below</p>
+    <div class="social-row">
+      <a href="https://linkedin.com/in/aayushadhikari46" class="social-link" target="_blank">
+        <i class="ti ti-brand-linkedin"></i> LinkedIn
+      </a>
+      <a href="https://www.instagram.com/_aayush__adhikari_/" class="social-link" target="_blank">
+        <i class="ti ti-brand-instagram"></i> Instagram
+      </a>
+      <a href="mailto:aayushad91@gmail.com" class="social-link">
+        <i class="ti ti-mail"></i> Email me
+      </a>
+    </div>
+  </section>
+</div>
+
+<footer>
+  Designed & built with <i class="ti ti-heart-filled" style="color:#e03131;font-size:14px;vertical-align:-2px;"></i> by <span>Aayush Adhikari</span> &copy; <span id="footer-year"></span>
+</footer>
+
+<script>
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+  const html = document.documentElement;
+  const icon = document.getElementById('themeIcon');
+  const label = document.getElementById('themeLabel');
+
+  const saved = localStorage.getItem('theme') || 'dark';
+  setTheme(saved);
+
+  function setTheme(theme) {
+    html.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    if (theme === 'dark') {
+      icon.className = 'ti ti-moon';
+      label.textContent = 'Dark';
+    } else {
+      icon.className = 'ti ti-sun';
+      label.textContent = 'Light';
+    }
+  }
+
+  function toggleTheme() {
+    const current = html.getAttribute('data-theme');
+    setTheme(current === 'dark' ? 'light' : 'dark');
+  }
+
+  // Typing animation
+  const roles = ['SEO Strategy.', 'Web Development.', 'Digital Marketing.', 'Creative Design.', 'Organic Growth.'];
+  let roleIdx = 0, charIdx = 0, deleting = false;
+  function type() {
+    const current = roles[roleIdx];
+    if (!deleting) {
+      typedEl.textContent = current.slice(0, charIdx + 1);
+      charIdx++;
+      if (charIdx === current.length) { deleting = true; setTimeout(type, 1600); return; }
+    } else {
+      typedEl.textContent = current.slice(0, charIdx - 1);
+      charIdx--;
+      if (charIdx === 0) { deleting = false; roleIdx = (roleIdx + 1) % roles.length; }
+    }
+    setTimeout(type, deleting ? 50 : 80);
+  }
+  type();
+</script>
+
+</body>
+</html>
