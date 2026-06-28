@@ -18,303 +18,288 @@
   --blue-light: #e6f4fd;
   --blue-border: #b5d4f4;
 }
-
 [data-theme="light"] {
-  --bg: #ffffff;
-  --bg-alt: #f7f7f6;
-  --surface: #ffffff;
-  --surface-2: #f2f2f0;
-  --text-primary: #111111;
-  --text-secondary: #555555;
-  --text-muted: #999999;
-  --border: rgba(0,0,0,0.1);
-  --border-strong: rgba(0,0,0,0.18);
-  --nav-bg: rgba(255,255,255,0.92);
-  --card-shadow: rgba(26,143,227,0.08);
-  --toggle-color: #555;
+  --bg: #ffffff; --bg-alt: #f7f7f6; --surface: #ffffff; --surface-2: #f2f2f0;
+  --text-primary: #111111; --text-secondary: #555555; --text-muted: #999999;
+  --border: rgba(0,0,0,0.1); --border-strong: rgba(0,0,0,0.18);
+  --nav-bg: rgba(255,255,255,0.92); --card-shadow: rgba(26,143,227,0.08); --toggle-color: #555;
 }
-
 [data-theme="dark"] {
-  --bg: #0f0f0f;
-  --bg-alt: #161616;
-  --surface: #1a1a1a;
-  --surface-2: #222222;
-  --text-primary: #f0f0f0;
-  --text-secondary: #a0a0a0;
-  --text-muted: #555555;
-  --border: rgba(255,255,255,0.08);
-  --border-strong: rgba(255,255,255,0.15);
-  --nav-bg: rgba(15,15,15,0.92);
-  --card-shadow: rgba(26,143,227,0.12);
-  --toggle-color: #ccc;
-  --blue-light: rgba(26,143,227,0.12);
-  --blue-border: rgba(26,143,227,0.3);
+  --bg: #0f0f0f; --bg-alt: #161616; --surface: #1a1a1a; --surface-2: #222222;
+  --text-primary: #f0f0f0; --text-secondary: #a0a0a0; --text-muted: #555555;
+  --border: rgba(255,255,255,0.08); --border-strong: rgba(255,255,255,0.15);
+  --nav-bg: rgba(15,15,15,0.92); --card-shadow: rgba(26,143,227,0.12); --toggle-color: #ccc;
+  --blue-light: rgba(26,143,227,0.12); --blue-border: rgba(26,143,227,0.3);
 }
 
 html { scroll-behavior: smooth; }
-
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: var(--bg);
-  color: var(--text-primary);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
+  background: var(--bg); color: var(--text-primary);
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
   transition: background 0.3s, color 0.3s;
 }
 
-/* NAV */
+/* ── NAV ── */
 nav {
   position: sticky; top: 0; z-index: 100;
-  background: var(--nav-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-  padding: 0 2.5rem;
+  background: var(--nav-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border); padding: 0 2rem;
   display: flex; align-items: center; justify-content: space-between;
-  height: 58px;
-  transition: background 0.3s, border-color 0.3s;
+  height: 58px; transition: background 0.3s, border-color 0.3s;
 }
-.nav-left { display: flex; align-items: center; gap: 2.5rem; }
-.nav-logo {
-  font-size: 15px; font-weight: 600;
-  color: var(--text-primary); letter-spacing: -0.3px;
-  text-decoration: none; transition: color 0.3s;
-}
+.nav-left { display: flex; align-items: center; gap: 2rem; }
+.nav-logo { font-size: 15px; font-weight: 600; color: var(--text-primary); letter-spacing: -0.3px; text-decoration: none; transition: color 0.3s; flex-shrink: 0; }
 .nav-logo span { color: var(--blue); }
-.nav-links { display: flex; gap: 2.5rem; list-style: none; }
-.nav-links a {
-  font-size: 13px; color: var(--text-secondary);
-  text-decoration: none; transition: color 0.2s;
-}
+.nav-links { display: flex; gap: 1.75rem; list-style: none; }
+.nav-links a { font-size: 13px; color: var(--text-secondary); text-decoration: none; transition: color 0.2s; white-space: nowrap; }
 .nav-links a:hover { color: var(--blue); }
-
+.nav-right { display: flex; align-items: center; gap: 0.75rem; }
 .theme-toggle {
-  display: flex; align-items: center; gap: 7px;
-  background: none; border: 1px solid var(--border-strong);
-  border-radius: 20px; padding: 6px 14px;
-  cursor: pointer; font-size: 13px; font-weight: 500;
-  color: var(--toggle-color); font-family: inherit;
-  transition: border-color 0.2s, color 0.2s;
+  display: flex; align-items: center; gap: 7px; background: none;
+  border: 1px solid var(--border-strong); border-radius: 20px; padding: 6px 14px;
+  cursor: pointer; font-size: 13px; font-weight: 500; color: var(--toggle-color);
+  font-family: inherit; transition: border-color 0.2s, color 0.2s; white-space: nowrap;
 }
 .theme-toggle:hover { border-color: var(--blue); color: var(--blue); }
 .theme-toggle i { font-size: 15px; }
 
-/* LAYOUT */
-.container { max-width: 1100px; margin: 0 auto; padding: 0 7rem; }
-section { padding: 5.5rem 0; }
+/* Hamburger */
+.hamburger {
+  display: none; flex-direction: column; justify-content: center; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 6px; width: 36px; height: 36px;
+}
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--text-primary); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none; position: fixed; top: 58px; left: 0; right: 0;
+  background: var(--nav-bg); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border); padding: 0.5rem 1.5rem 1.25rem;
+  z-index: 99; flex-direction: column;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a { font-size: 15px; color: var(--text-secondary); text-decoration: none; padding: 0.75rem 0; border-bottom: 1px solid var(--border); transition: color 0.2s; }
+.mobile-menu a:last-child { border-bottom: none; }
+.mobile-menu a:hover { color: var(--blue); }
+
+/* ── LAYOUT ── */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+section { padding: 5rem 0; }
 hr.divider { border: none; border-top: 1px solid var(--border); transition: border-color 0.3s; }
 
-/* HERO */
-.hero { padding: 5rem 0 4.5rem; }
-
-.hero-inner {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 2rem;
-}
-
-.hero-left { flex: 1; min-width: 0; max-width: 580px; }
+/* ── HERO ── */
+.hero { padding: 4.5rem 0 4rem; }
+.hero-inner { display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 2rem; }
+.hero-left { flex: 1; min-width: 0; }
 
 .hero-badge {
   display: inline-flex; align-items: center; gap: 7px;
   background: var(--blue-light); color: var(--blue);
   font-size: 12px; font-weight: 500; padding: 5px 14px;
-  border-radius: 20px; margin-bottom: 1.75rem;
-  border: 1px solid var(--blue-border);
-  transition: background 0.3s, border-color 0.3s;
+  border-radius: 20px; margin-bottom: 1.5rem;
+  border: 1px solid var(--blue-border); transition: background 0.3s, border-color 0.3s;
 }
-.hero-badge .dot {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: var(--blue); animation: pulse 2s infinite;
-}
+.hero-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--blue); animation: pulse 2s infinite; flex-shrink: 0; }
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.35} }
 
-.hero h1 {
-  font-size: 52px; font-weight: 600; line-height: 1.1;
-  letter-spacing: -1.8px; margin-bottom: 1rem;
-  color: var(--text-primary); transition: color 0.3s;
-}
+.hero h1 { font-size: clamp(30px, 5vw, 52px); font-weight: 600; line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 0.9rem; color: var(--text-primary); transition: color 0.3s; }
 .hero h1 .name {
   display: block;
   background: linear-gradient(90deg, #1a8fe3 0%, #7fd4ff 40%, #ffffff 50%, #7fd4ff 60%, #1a8fe3 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   animation: shimmer 3s linear infinite, floatName 4s ease-in-out infinite;
-  display: block;
 }
-@keyframes shimmer {
-  0% { background-position: 200% center; }
-  100% { background-position: -200% center; }
-}
-@keyframes floatName {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-6px); }
-}
+@keyframes shimmer { 0% { background-position: 200% center; } 100% { background-position: -200% center; } }
+@keyframes floatName { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 
-.hero-bio {
-  font-size: 15px; color: var(--text-secondary);
-  line-height: 1.85; margin-bottom: 1.75rem;
-  max-width: 520px; transition: color 0.3s;
-}
-
-.hero-pills {
-  display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2.25rem;
-}
+.hero-bio { font-size: 15px; color: var(--text-secondary); line-height: 1.85; margin-bottom: 1.5rem; max-width: 520px; transition: color 0.3s; }
+.hero-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2rem; }
 .hero-pill {
-  display: inline-flex; align-items: center; gap: 5px;
-  font-size: 12px; font-weight: 500;
-  padding: 5px 12px; border-radius: 20px;
-  border: 1px solid var(--border-strong);
-  color: var(--text-secondary);
-  background: var(--surface-2);
-  transition: border-color 0.2s, color 0.2s, background 0.3s;
-  cursor: default;
+  display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 500;
+  padding: 5px 12px; border-radius: 20px; border: 1px solid var(--border-strong);
+  color: var(--text-secondary); background: var(--surface-2); transition: border-color 0.2s, color 0.2s, background 0.3s; cursor: default;
 }
 .hero-pill i { font-size: 13px; color: var(--blue); }
 .hero-pill:hover { border-color: var(--blue); color: var(--blue); }
-
 .cta-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 
-/* HERO RIGHT — Avatar illustration */
-.hero-right {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 280px;
-  min-width: 280px;
-}
+.hero-img-wrap { flex-shrink: 0; width: 340px; }
+.hero-img { width: 100%; height: auto; display: block; filter: drop-shadow(0 20px 40px rgba(26,143,227,0.15)); animation: imgFloat 5s ease-in-out infinite; }
+[data-theme="light"] .hero-img { filter: drop-shadow(0 20px 40px rgba(26,143,227,0.2)); }
+@keyframes imgFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
 
-/* nothing here - canvas handles everything */
-
-/* BUTTONS */
+/* ── BUTTONS ── */
 .btn-primary {
-  display: inline-flex; align-items: center; gap: 7px;
-  background: var(--blue); color: #fff;
-  font-size: 14px; font-weight: 500; padding: 11px 24px;
-  border-radius: 8px; text-decoration: none;
-  border: none; cursor: pointer;
-  transition: background 0.2s, transform 0.15s;
-  font-family: inherit;
+  display: inline-flex; align-items: center; gap: 7px; background: var(--blue); color: #fff;
+  font-size: 14px; font-weight: 500; padding: 11px 24px; border-radius: 8px; text-decoration: none;
+  border: none; cursor: pointer; transition: background 0.2s, transform 0.15s; font-family: inherit; white-space: nowrap;
 }
 .btn-primary:hover { background: var(--blue-hover); transform: translateY(-1px); }
-
 .btn-outline {
-  display: inline-flex; align-items: center; gap: 7px;
-  background: transparent; color: var(--text-primary);
-  font-size: 14px; font-weight: 500; padding: 11px 24px;
-  border-radius: 8px; text-decoration: none;
-  border: 1px solid var(--border-strong); cursor: pointer;
-  transition: border-color 0.2s, color 0.2s, transform 0.15s, background 0.3s;
-  font-family: inherit;
+  display: inline-flex; align-items: center; gap: 7px; background: transparent; color: var(--text-primary);
+  font-size: 14px; font-weight: 500; padding: 11px 24px; border-radius: 8px; text-decoration: none;
+  border: 1px solid var(--border-strong); cursor: pointer; transition: border-color 0.2s, color 0.2s, transform 0.15s, background 0.3s; font-family: inherit; white-space: nowrap;
 }
 .btn-outline:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-1px); }
 
-/* SECTION HEADER */
-.section-label {
-  font-size: 11px; font-weight: 600; color: var(--blue);
-  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px;
-}
-.section-title {
-  font-size: 30px; font-weight: 600; letter-spacing: -0.7px;
-  margin-bottom: 6px; color: var(--text-primary); transition: color 0.3s;
-}
+/* ── SECTION HEADER ── */
+.section-label { font-size: 11px; font-weight: 600; color: var(--blue); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+.section-title { font-size: clamp(22px, 4vw, 30px); font-weight: 600; letter-spacing: -0.5px; margin-bottom: 6px; color: var(--text-primary); transition: color 0.3s; }
 .section-sub { font-size: 14px; color: var(--text-secondary); margin-bottom: 2.5rem; transition: color 0.3s; }
 
-/* ABOUT */
+/* ── ABOUT ── */
 .about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 2.5rem; align-items: start; }
 .about-text { font-size: 15px; color: var(--text-secondary); line-height: 1.85; transition: color 0.3s; }
 .about-text p + p { margin-top: 1rem; }
 .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.stat-card {
-  background: var(--surface-2); border: 1px solid var(--border);
-  border-radius: 12px; padding: 1.25rem 1.25rem 1rem;
-  transition: background 0.3s, border-color 0.3s;
-}
-.stat-num { font-size: 30px; font-weight: 600; color: var(--blue); line-height: 1; margin-bottom: 5px; }
+.stat-card { background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1rem 1rem; transition: background 0.3s, border-color 0.3s; }
+.stat-num { font-size: 28px; font-weight: 600; color: var(--blue); line-height: 1; margin-bottom: 5px; }
 .stat-label { font-size: 12px; color: var(--text-secondary); transition: color 0.3s; }
 
-/* SKILLS */
-.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; }
-.skill-card {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: 12px; padding: 1.4rem 1.25rem;
-  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s, background 0.3s;
-}
-.skill-card:hover {
-  border-color: var(--blue); transform: translateY(-3px);
-  box-shadow: 0 8px 24px var(--card-shadow);
-}
+/* ── SKILLS ── */
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; }
+.skill-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.4rem 1.25rem; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s, background 0.3s; }
+.skill-card:hover { border-color: var(--blue); transform: translateY(-3px); box-shadow: 0 8px 24px var(--card-shadow); }
 .skill-icon { font-size: 24px; color: var(--blue); margin-bottom: 12px; display: block; }
 .skill-name { font-size: 14px; font-weight: 600; margin-bottom: 5px; color: var(--text-primary); transition: color 0.3s; }
 .skill-desc { font-size: 12.5px; color: var(--text-secondary); line-height: 1.6; transition: color 0.3s; }
 
-/* INDUSTRIES */
-.industries-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
-.industry-card {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: 12px; padding: 1.6rem 1.4rem;
-  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s, background 0.3s;
-}
-.industry-card:hover {
-  border-color: var(--blue); transform: translateY(-3px);
-  box-shadow: 0 8px 24px var(--card-shadow);
-}
-.industry-icon-wrap {
-  width: 44px; height: 44px; border-radius: 8px;
-  background: var(--blue-light); display: flex; align-items: center; justify-content: center;
-  margin-bottom: 1.1rem; font-size: 22px; color: var(--blue);
-  transition: background 0.3s;
-}
+/* ── INDUSTRIES ── */
+.industries-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.industry-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.6rem 1.4rem; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s, background 0.3s; }
+.industry-card:hover { border-color: var(--blue); transform: translateY(-3px); box-shadow: 0 8px 24px var(--card-shadow); }
+.industry-icon-wrap { width: 44px; height: 44px; border-radius: 8px; background: var(--blue-light); display: flex; align-items: center; justify-content: center; margin-bottom: 1.1rem; font-size: 22px; color: var(--blue); transition: background 0.3s; }
 .industry-name { font-size: 15px; font-weight: 600; margin-bottom: 7px; color: var(--text-primary); transition: color 0.3s; }
 .industry-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.65; transition: color 0.3s; }
 
-/* CONNECT */
+/* ── COMPANIES ── */
+.companies-row {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: 1.5rem;
+}
+.company-card {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+  padding: 1.5rem 1.5rem; min-width: 160px; flex: 1; max-width: 220px;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s, background 0.3s;
+  text-decoration: none;
+}
+.company-card:hover { border-color: var(--blue); transform: translateY(-3px); box-shadow: 0 8px 24px var(--card-shadow); }
+.company-logo-wrap {
+  background: transparent;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 60px; width: 100%;
+}
+.company-logo {
+  height: 44px; width: auto; max-width: 150px; object-fit: contain; display: block;
+  mix-blend-mode: screen;
+  filter: brightness(1.1) contrast(1.05);
+  transition: transform 0.2s;
+}
+[data-theme="light"] .company-logo {
+  mix-blend-mode: multiply;
+  filter: none;
+}
+.company-card:hover .company-logo { transform: scale(1.05); }
+.company-name { font-size: 13px; font-weight: 500; color: var(--text-secondary); transition: color 0.3s; }
+
+/* ── CERTIFICATES ── */
+.certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.cert-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+  padding: 1.5rem 1.4rem; display: flex; flex-direction: column; gap: 14px;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s, background 0.3s;
+}
+.cert-card:hover { border-color: var(--blue); transform: translateY(-3px); box-shadow: 0 8px 24px var(--card-shadow); }
+.cert-logo-row { display: flex; align-items: center; gap: 12px; }
+.cert-logo-bg {
+  background: transparent;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.cert-logo {
+  height: 26px; width: auto; max-width: 90px; object-fit: contain; display: block;
+  mix-blend-mode: screen;
+  filter: brightness(1.1) contrast(1.05);
+}
+[data-theme="light"] .cert-logo {
+  mix-blend-mode: multiply;
+  filter: none;
+}
+.cert-issuer { font-size: 12px; font-weight: 600; color: var(--blue); letter-spacing: 0.5px; text-transform: uppercase; }
+.cert-name { font-size: 15px; font-weight: 600; color: var(--text-primary); transition: color 0.3s; }
+.cert-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: var(--blue-light); color: var(--blue);
+  font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px;
+  border: 1px solid var(--blue-border); width: fit-content;
+}
+
+/* ── CONNECT ── */
 .social-row { display: flex; gap: 12px; flex-wrap: wrap; }
 .social-link {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--surface); border: 1px solid var(--border-strong);
-  border-radius: 8px; padding: 11px 20px;
+  display: inline-flex; align-items: center; gap: 8px; background: var(--surface);
+  border: 1px solid var(--border-strong); border-radius: 8px; padding: 11px 20px;
   font-size: 13px; font-weight: 500; color: var(--text-primary);
-  text-decoration: none; transition: border-color 0.2s, color 0.2s, transform 0.15s, background 0.3s;
-  font-family: inherit;
+  text-decoration: none; transition: border-color 0.2s, color 0.2s, transform 0.15s, background 0.3s; font-family: inherit;
 }
 .social-link:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-2px); }
 .social-link i { font-size: 17px; }
 
-/* FOOTER */
-footer {
-  text-align: center; padding: 2.5rem;
-  font-size: 13px; color: var(--text-muted);
-  border-top: 1px solid var(--border);
-  background: var(--bg-alt);
-  transition: background 0.3s, border-color 0.3s, color 0.3s;
-}
+/* ── FOOTER ── */
+footer { text-align: center; padding: 2rem; font-size: 13px; color: var(--text-muted); border-top: 1px solid var(--border); background: var(--bg-alt); transition: background 0.3s, border-color 0.3s, color 0.3s; }
 footer span { color: var(--blue); font-weight: 500; }
 
-
-
-/* RESPONSIVE */
-@media (max-width: 720px) {
-  .hero-inner {
-    flex-direction: column-reverse;
-    align-items: center;
-    text-align: center;
-  }
-
-  .hero-pills { justify-content: center; }
-  .cta-row { justify-content: center; }
-  .hero h1 { font-size: 36px; }
-  .hero-badge { margin: 0 auto 1.75rem; }
-  nav { padding: 0 1.25rem; }
-  .container { padding: 0 1.25rem; }
+/* ════════════════════════════
+   RESPONSIVE
+   ════════════════════════════ */
+@media (max-width: 1024px) {
+  .container { padding: 0 2.5rem; }
+  .hero-img-wrap { width: 280px; }
+}
+@media (max-width: 860px) {
+  .container { padding: 0 1.75rem; }
   .nav-links { gap: 1.25rem; }
-  section { padding: 4rem 0; }
-  .theme-toggle span { display: none; }
+  .hero-img-wrap { width: 240px; }
   .about-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  /* Nav */
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .theme-toggle .toggle-label { display: none; }
+  nav { padding: 0 1.25rem; }
+
+  .container { padding: 0 1.25rem; }
+  section { padding: 3.5rem 0; }
+  .hero { padding: 2.5rem 0 2rem; }
+
+  /* Hero stacks */
+  .hero-inner { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  .hero-img-wrap { width: 100%; max-width: 260px; margin: 0 auto; }
+  .hero h1 { letter-spacing: -1px; }
+  .hero-bio { max-width: 100%; }
+
+  .skills-grid { grid-template-columns: 1fr 1fr; }
+  .industries-grid { grid-template-columns: 1fr; }
+  .about-stats { grid-template-columns: 1fr 1fr; }
+  .certs-grid { grid-template-columns: 1fr; }
+
+  .cta-row { flex-direction: column; align-items: stretch; gap: 10px; }
+  .btn-primary, .btn-outline { justify-content: center; }
+
+  .social-row { flex-direction: column; }
+  .social-link { justify-content: center; }
+
+  .companies-row { gap: 1rem; }
+  .company-card { min-width: 140px; padding: 1.25rem 1rem; }
+}
+@media (max-width: 380px) {
+  .skills-grid { grid-template-columns: 1fr; }
+  .about-stats { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 28px; }
 }
 </style>
 </head>
@@ -327,21 +312,35 @@ footer span { color: var(--blue); font-weight: 500; }
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#industries">Industries</a></li>
+      <li><a href="#companies">Work</a></li>
+      <li><a href="#certs">Certificates</a></li>
       <li><a href="#connect">Connect</a></li>
     </ul>
   </div>
-  <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle theme">
-    <i class="ti ti-moon" id="themeIcon"></i>
-    <span id="themeLabel">Dark</span>
-  </button>
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle theme">
+      <i class="ti ti-moon" id="themeIcon"></i>
+      <span class="toggle-label" id="themeLabel">Dark</span>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#skills" onclick="closeMenu()">Skills</a>
+  <a href="#industries" onclick="closeMenu()">Industries</a>
+  <a href="#companies" onclick="closeMenu()">Work</a>
+  <a href="#certs" onclick="closeMenu()">Certificates</a>
+  <a href="#connect" onclick="closeMenu()">Connect</a>
+</div>
 
 <!-- HERO -->
 <div class="container">
   <div class="hero">
     <div class="hero-inner">
-
-      <!-- LEFT -->
       <div class="hero-left">
         <div class="hero-badge"><span class="dot"></span> Available for freelance work</div>
         <h1>Hi, I'm<span class="name">Aayush Adhikari</span></h1>
@@ -355,17 +354,11 @@ footer span { color: var(--blue); font-weight: 500; }
           <span class="hero-pill"><i class="ti ti-brush"></i> Creative Design</span>
         </div>
         <div class="cta-row">
-          <a href="https://linkedin.com/in/aayushadhikari46" class="btn-primary" target="_blank">
-            <i class="ti ti-brand-linkedin"></i> Let's Talk
-          </a>
-          <a href="mailto:aayushad91@gmail.com" class="btn-outline">
-            <i class="ti ti-mail"></i> aayushad91@gmail.com
-          </a>
+          <a href="https://linkedin.com/in/aayushadhikari46" class="btn-primary" target="_blank"><i class="ti ti-brand-linkedin"></i> Let's Talk</a>
+          <a href="mailto:aayushad91@gmail.com" class="btn-outline"><i class="ti ti-mail"></i> aayushad91@gmail.com</a>
         </div>
       </div>
-
-    </div>
-
+      <div class="hero-img-wrap" id="heroImgWrap"></div>
     </div>
   </div>
 </div>
@@ -386,8 +379,8 @@ footer span { color: var(--blue); font-weight: 500; }
       <div class="about-stats">
         <div class="stat-card"><div class="stat-num">3+</div><div class="stat-label">Years of experience</div></div>
         <div class="stat-card"><div class="stat-num">SaaS</div><div class="stat-label">Current focus</div></div>
-        <div class="stat-card"><div class="stat-num">4</div><div class="stat-label">Core skill areas</div></div>
-        <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">Services offered</div></div>
+        <div class="stat-card"><div class="stat-num">5</div><div class="stat-label">Core skill areas</div></div>
+        <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">Certificates earned</div></div>
       </div>
     </div>
   </section>
@@ -402,31 +395,11 @@ footer span { color: var(--blue); font-weight: 500; }
     <div class="section-title">What I bring to the table</div>
     <p class="section-sub">A well-rounded skill set built across multiple disciplines</p>
     <div class="skills-grid">
-      <div class="skill-card">
-        <i class="ti ti-code skill-icon"></i>
-        <div class="skill-name">Web development</div>
-        <div class="skill-desc">Building fast, clean, well-structured websites from scratch using modern web technologies.</div>
-      </div>
-      <div class="skill-card">
-        <i class="ti ti-chart-bar skill-icon"></i>
-        <div class="skill-name">Digital marketing</div>
-        <div class="skill-desc">Full-funnel marketing strategy including SEO, content, and organic growth for SaaS brands.</div>
-      </div>
-      <div class="skill-card">
-        <i class="ti ti-brush skill-icon"></i>
-        <div class="skill-name">Creative design</div>
-        <div class="skill-desc">Crafting visually compelling designs that communicate clearly and leave a lasting impression.</div>
-      </div>
-      <div class="skill-card">
-        <i class="ti ti-pencil skill-icon"></i>
-        <div class="skill-name">Content writing</div>
-        <div class="skill-desc">Creating engaging, SEO-optimized content that ranks well, resonates with audiences, and drives conversions.</div>
-      </div>
-      <div class="skill-card">
-        <i class="ti ti-brand-instagram skill-icon"></i>
-        <div class="skill-name">Social media marketing</div>
-        <div class="skill-desc">Building brand presence and driving engagement across social platforms through strategic content and campaigns.</div>
-      </div>
+      <div class="skill-card"><i class="ti ti-code skill-icon"></i><div class="skill-name">Web development</div><div class="skill-desc">Building fast, clean, well-structured websites from scratch using modern web technologies.</div></div>
+      <div class="skill-card"><i class="ti ti-chart-bar skill-icon"></i><div class="skill-name">Digital marketing</div><div class="skill-desc">Full-funnel marketing strategy including SEO, content, and organic growth for SaaS brands.</div></div>
+      <div class="skill-card"><i class="ti ti-brush skill-icon"></i><div class="skill-name">Creative design</div><div class="skill-desc">Crafting visually compelling designs that communicate clearly and leave a lasting impression.</div></div>
+      <div class="skill-card"><i class="ti ti-pencil skill-icon"></i><div class="skill-name">Content writing</div><div class="skill-desc">Creating engaging, SEO-optimized content that ranks well, resonates with audiences, and drives conversions.</div></div>
+      <div class="skill-card"><i class="ti ti-brand-instagram skill-icon"></i><div class="skill-name">Social media marketing</div><div class="skill-desc">Building brand presence and driving engagement across social platforms through strategic content and campaigns.</div></div>
     </div>
   </section>
 </div>
@@ -440,31 +413,145 @@ footer span { color: var(--blue); font-weight: 500; }
     <div class="section-title">Who I work with</div>
     <p class="section-sub">Helping businesses across diverse industries grow their online presence</p>
     <div class="industries-grid">
-      <div class="industry-card">
-        <div class="industry-icon-wrap"><i class="ti ti-cloud"></i></div>
-        <div class="industry-name">SaaS Companies</div>
-        <div class="industry-desc">Driving organic growth and user acquisition for software-as-a-service products through targeted SEO and content strategy.</div>
+      <div class="industry-card"><div class="industry-icon-wrap"><i class="ti ti-cloud"></i></div><div class="industry-name">SaaS Companies</div><div class="industry-desc">Driving organic growth and user acquisition for software-as-a-service products through targeted SEO and content strategy.</div></div>
+      <div class="industry-card"><div class="industry-icon-wrap"><i class="ti ti-building-store"></i></div><div class="industry-name">Local Businesses</div><div class="industry-desc">Helping local brands dominate their area through local SEO, Google Business optimization, and community-focused digital marketing.</div></div>
+      <div class="industry-card"><div class="industry-icon-wrap"><i class="ti ti-shopping-cart"></i></div><div class="industry-name">E-Commerce</div><div class="industry-desc">Boosting product visibility, traffic, and conversions for online stores through technical SEO and performance-driven campaigns.</div></div>
+      <div class="industry-card"><div class="industry-icon-wrap"><i class="ti ti-building-bank"></i></div><div class="industry-name">Financial Institutions</div><div class="industry-desc">Building trust and authority online for financial brands through compliant, high-quality content and search optimization.</div></div>
+      <div class="industry-card"><div class="industry-icon-wrap"><i class="ti ti-heart-rate-monitor"></i></div><div class="industry-name">Healthcare Industries</div><div class="industry-desc">Improving digital visibility for healthcare providers with accurate, authoritative content that ranks and builds patient trust.</div></div>
+    </div>
+  </section>
+</div>
+
+<hr class="divider">
+
+<!-- COMPANIES -->
+<div class="container">
+  <section id="companies">
+    <div class="section-label">Experience</div>
+    <div class="section-title">Companies I've worked with</div>
+    <p class="section-sub">Brands I've helped grow through SEO and digital marketing</p>
+    <div class="companies-row">
+
+      <a href="https://www.tivazo.com" target="_blank" class="company-card">
+        <div class="company-logo-wrap">
+          <img src="https://tivazo.com/wp-content/uploads/2026/03/cropped-favicontivazo-270x270.png"
+               alt="Tivazo" class="company-logo"
+               onerror="this.parentElement.innerHTML='<i class=\'ti ti-cloud\' style=\'font-size:28px;color:var(--blue)\'></i>'">
+        </div>
+        <span class="company-name">Tivazo</span>
+      </a>
+
+      <a href="https://www.getdarkscout.com" target="_blank" class="company-card">
+        <div class="company-logo-wrap">
+          <img src="https://getdarkscout.com/favicon.ico"
+               alt="DarkScout" class="company-logo"
+               onerror="this.parentElement.innerHTML='<i class=\'ti ti-shield\' style=\'font-size:28px;color:var(--blue)\'></i>'">
+        </div>
+        <span class="company-name">DarkScout</span>
+      </a>
+
+      <a href="https://www.codavatar.com" target="_blank" class="company-card">
+        <div class="company-logo-wrap">
+          <img src="https://codavatar.com/wp-content/uploads/2023/06/codavatar-logo.svg"
+               alt="Codavatar" class="company-logo"
+               onerror="this.parentElement.innerHTML='<i class=\'ti ti-code\' style=\'font-size:28px;color:var(--blue)\'></i>'">
+        </div>
+        <span class="company-name">Codavatar</span>
+      </a>
+
+      <a href="https://www.advancecollege.edu.au/" target="_blank" class="company-card">
+        <div class="company-logo-wrap">
+          <img src="https://www.advancecollege.edu.au/wp-content/uploads/2020/03/advance-college-logo-color.svg"
+               alt="Advance College" class="company-logo"
+               onerror="this.parentElement.innerHTML='<i class=\'ti ti-school\' style=\'font-size:28px;color:var(--blue)\'></i>'">
+        </div>
+        <span class="company-name">Advance College</span>
+      </a>
+
+      <a href="https://mountainroutes.com/" target="_blank" class="company-card">
+        <div class="company-logo-wrap">
+          <img src="https://mountainroutes.com/storage/media-variants/avif/media/2025/12/mountainroutes.avif"
+               alt="Mountain Routes" class="company-logo"
+               onerror="this.parentElement.innerHTML='<i class=\'ti ti-mountain\' style=\'font-size:28px;color:var(--blue)\'></i>'">
+        </div>
+        <span class="company-name">Mountain Routes</span>
+      </a>
+
+    </div>
+  </section>
+</div>
+
+<hr class="divider">
+
+<!-- CERTIFICATES -->
+<div class="container">
+  <section id="certs">
+    <div class="section-label">Certifications</div>
+    <div class="section-title">Certificates I've achieved</div>
+    <p class="section-sub">Verified credentials from globally recognised platforms</p>
+    <div class="certs-grid">
+
+      <div class="cert-card">
+        <div class="cert-logo-row">
+          <div class="cert-logo-bg">
+            <img src="https://www.google.com/favicon.ico" alt="Google" class="cert-logo"
+                 onerror="this.parentElement.style.display='none';">
+          </div>
+          <span class="cert-issuer">Google</span>
+        </div>
+        <div class="cert-name">Fundamentals of Digital Marketing</div>
+        <div class="cert-badge"><i class="ti ti-certificate" style="font-size:12px;"></i> Certified</div>
       </div>
-      <div class="industry-card">
-        <div class="industry-icon-wrap"><i class="ti ti-building-store"></i></div>
-        <div class="industry-name">Local Businesses</div>
-        <div class="industry-desc">Helping local brands dominate their area through local SEO, Google Business optimization, and community-focused digital marketing.</div>
+
+      <div class="cert-card">
+        <div class="cert-logo-row">
+          <div class="cert-logo-bg">
+            <img src="https://www.hubspot.com/favicon.ico" alt="HubSpot" class="cert-logo"
+                 onerror="this.parentElement.style.display='none';">
+          </div>
+          <span class="cert-issuer">HubSpot</span>
+        </div>
+        <div class="cert-name">SEO Certification</div>
+        <div class="cert-badge"><i class="ti ti-certificate" style="font-size:12px;"></i> Certified</div>
       </div>
-      <div class="industry-card">
-        <div class="industry-icon-wrap"><i class="ti ti-shopping-cart"></i></div>
-        <div class="industry-name">E-Commerce</div>
-        <div class="industry-desc">Boosting product visibility, traffic, and conversions for online stores through technical SEO and performance-driven campaigns.</div>
+
+      <div class="cert-card">
+        <div class="cert-logo-row">
+          <div class="cert-logo-bg">
+            <img src="https://www.semrush.com/favicon.ico" alt="Semrush" class="cert-logo"
+                 onerror="this.parentElement.style.display='none';">
+          </div>
+          <span class="cert-issuer">Semrush</span>
+        </div>
+        <div class="cert-name">Keyword Research Certification</div>
+        <div class="cert-badge"><i class="ti ti-certificate" style="font-size:12px;"></i> Certified</div>
       </div>
-      <div class="industry-card">
-        <div class="industry-icon-wrap"><i class="ti ti-building-bank"></i></div>
-        <div class="industry-name">Financial Institutions</div>
-        <div class="industry-desc">Building trust and authority online for financial brands through compliant, high-quality content and search optimization.</div>
+
+      <div class="cert-card">
+        <div class="cert-logo-row">
+          <div class="cert-logo-bg">
+            <img src="https://www.cisco.com/favicon.ico" alt="Cisco" class="cert-logo"
+                 onerror="this.parentElement.style.display='none';">
+          </div>
+          <span class="cert-issuer">Cisco</span>
+        </div>
+        <div class="cert-name">CCNA — Cisco Certified Network Associate</div>
+        <div class="cert-badge"><i class="ti ti-certificate" style="font-size:12px;"></i> Certified</div>
       </div>
-      <div class="industry-card">
-        <div class="industry-icon-wrap"><i class="ti ti-heart-rate-monitor"></i></div>
-        <div class="industry-name">Healthcare Industries</div>
-        <div class="industry-desc">Improving digital visibility for healthcare providers with accurate, authoritative content that ranks and builds patient trust.</div>
+
+      <div class="cert-card">
+        <div class="cert-logo-row">
+          <div class="cert-logo-bg">
+            <img src="https://www.linkedin.com/favicon.ico" alt="LinkedIn" class="cert-logo"
+                 onerror="this.parentElement.style.display='none';">
+          </div>
+          <span class="cert-issuer">LinkedIn</span>
+        </div>
+        <div class="cert-name">Artificial Intelligence</div>
+        <div class="cert-badge"><i class="ti ti-certificate" style="font-size:12px;"></i> Certified</div>
       </div>
+
+
     </div>
   </section>
 </div>
@@ -478,15 +565,9 @@ footer span { color: var(--blue); font-weight: 500; }
     <div class="section-title">Let's work together</div>
     <p class="section-sub">Find me on the platforms below</p>
     <div class="social-row">
-      <a href="https://linkedin.com/in/aayushadhikari46" class="social-link" target="_blank">
-        <i class="ti ti-brand-linkedin"></i> LinkedIn
-      </a>
-      <a href="https://www.instagram.com/_aayush__adhikari_/" class="social-link" target="_blank">
-        <i class="ti ti-brand-instagram"></i> Instagram
-      </a>
-      <a href="mailto:aayushad91@gmail.com" class="social-link">
-        <i class="ti ti-mail"></i> Email me
-      </a>
+      <a href="https://linkedin.com/in/aayushadhikari46" class="social-link" target="_blank"><i class="ti ti-brand-linkedin"></i> LinkedIn</a>
+      <a href="https://www.instagram.com/_aayush__adhikari_/" class="social-link" target="_blank"><i class="ti ti-brand-instagram"></i> Instagram</a>
+      <a href="mailto:aayushad91@gmail.com" class="social-link"><i class="ti ti-mail"></i> Email me</a>
     </div>
   </section>
 </div>
@@ -497,31 +578,33 @@ footer span { color: var(--blue); font-weight: 500; }
 
 <script>
   document.getElementById('footer-year').textContent = new Date().getFullYear();
-
   const html = document.documentElement;
   const icon = document.getElementById('themeIcon');
   const label = document.getElementById('themeLabel');
-
   const saved = localStorage.getItem('theme') || 'dark';
   setTheme(saved);
 
   function setTheme(theme) {
     html.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
-    if (theme === 'dark') {
-      icon.className = 'ti ti-moon';
-      label.textContent = 'Dark';
-    } else {
-      icon.className = 'ti ti-sun';
-      label.textContent = 'Light';
-    }
+    icon.className = theme === 'dark' ? 'ti ti-moon' : 'ti ti-sun';
+    label.textContent = theme === 'dark' ? 'Dark' : 'Light';
   }
+  function toggleTheme() { setTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'); }
 
-  function toggleTheme() {
-    const current = html.getAttribute('data-theme');
-    setTheme(current === 'dark' ? 'light' : 'dark');
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+    document.getElementById('hamburger').classList.toggle('open');
   }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+  }
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobileMenu');
+    const btn = document.getElementById('hamburger');
+    if (!menu.contains(e.target) && !btn.contains(e.target)) closeMenu();
+  });
 </script>
-
 </body>
 </html>
