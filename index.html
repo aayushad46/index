@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aayush Adhikari — SEO & Digital Marketing Expert</title>
+<title>Aayush Adhikari — SEO & Digital Marketing</title>
+<meta name="description" content="Hi, I'm Aayush – your trusted SEO and Digital Marketing expert. With years of experience, I can help you improve your search engine rankings, attract more organic traffic, and achieve long-term online success.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -99,22 +100,21 @@ nav {
 .theme-toggle i { font-size: 15px; }
 
 /* LAYOUT */
-.container { max-width: 920px; margin: 0 auto; padding: 0 2.5rem; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 7rem; }
 section { padding: 5.5rem 0; }
 hr.divider { border: none; border-top: 1px solid var(--border); transition: border-color 0.3s; }
 
 /* HERO */
-.hero { padding: 5.5rem 0 5rem; }
+.hero { padding: 5rem 0 4.5rem; }
 
 .hero-inner {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  gap: 3rem;
+  gap: 2rem;
 }
 
-.hero-left { flex: 1; min-width: 0; }
+.hero-left { flex: 1; min-width: 0; max-width: 580px; }
 
 .hero-badge {
   display: inline-flex; align-items: center; gap: 7px;
@@ -135,20 +135,24 @@ hr.divider { border: none; border-top: 1px solid var(--border); transition: bord
   letter-spacing: -1.8px; margin-bottom: 1rem;
   color: var(--text-primary); transition: color 0.3s;
 }
-.hero h1 .name { color: var(--blue); display: block; }
-
-.hero-role-line {
-  font-size: 18px; font-weight: 500;
-  color: var(--text-secondary); margin-bottom: 1.5rem;
-  min-height: 1.6em; transition: color 0.3s;
+.hero h1 .name {
+  display: block;
+  background: linear-gradient(90deg, #1a8fe3 0%, #7fd4ff 40%, #ffffff 50%, #7fd4ff 60%, #1a8fe3 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite, floatName 4s ease-in-out infinite;
+  display: block;
 }
-.hero-role-line .typed-text { color: var(--blue); }
-.hero-role-line .cursor {
-  display: inline-block; width: 2px; height: 1em;
-  background: var(--blue); margin-left: 2px;
-  vertical-align: middle; animation: blink 1s infinite;
+@keyframes shimmer {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
 }
-@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+@keyframes floatName {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
 
 .hero-bio {
   font-size: 15px; color: var(--text-secondary);
@@ -174,56 +178,17 @@ hr.divider { border: none; border-top: 1px solid var(--border); transition: bord
 
 .cta-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 
-/* HERO RIGHT */
+/* HERO RIGHT — Avatar illustration */
 .hero-right {
   flex-shrink: 0;
-  display: flex; flex-direction: column;
-  align-items: center; gap: 14px;
-  width: 210px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 280px;
+  min-width: 280px;
 }
 
-.avatar-card {
-  width: 210px; height: 210px;
-  border-radius: 24px;
-  border: 1px solid var(--border-strong);
-  background: var(--surface-2);
-  display: flex; align-items: center; justify-content: center;
-  position: relative; overflow: hidden;
-  transition: background 0.3s, border-color 0.3s;
-}
-.avatar-glow {
-  position: absolute; width: 140px; height: 140px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(26,143,227,0.22) 0%, transparent 70%);
-  pointer-events: none;
-}
-.avatar-initials {
-  font-size: 54px; font-weight: 600;
-  color: var(--blue); letter-spacing: -2px; z-index: 1;
-}
-.avatar-ring {
-  position: absolute; inset: 0; border-radius: 24px;
-  background: linear-gradient(135deg, rgba(26,143,227,0.3) 0%, transparent 50%);
-  pointer-events: none;
-}
-
-.hero-mini-stats {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 10px; width: 210px;
-}
-.mini-stat {
-  background: var(--surface-2); border: 1px solid var(--border);
-  border-radius: 12px; padding: 12px 10px;
-  text-align: center;
-  transition: background 0.3s, border-color 0.3s;
-}
-.mini-stat-num {
-  font-size: 20px; font-weight: 600;
-  color: var(--blue); line-height: 1;
-}
-.mini-stat-label {
-  font-size: 11px; color: var(--text-muted);
-  margin-top: 3px; transition: color 0.3s;
-}
+/* nothing here - canvas handles everything */
 
 /* BUTTONS */
 .btn-primary {
@@ -287,25 +252,25 @@ hr.divider { border: none; border-top: 1px solid var(--border); transition: bord
 .skill-name { font-size: 14px; font-weight: 600; margin-bottom: 5px; color: var(--text-primary); transition: color 0.3s; }
 .skill-desc { font-size: 12.5px; color: var(--text-secondary); line-height: 1.6; transition: color 0.3s; }
 
-/* SERVICES */
-.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
-.service-card {
+/* INDUSTRIES */
+.industries-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.industry-card {
   background: var(--surface); border: 1px solid var(--border);
   border-radius: 12px; padding: 1.6rem 1.4rem;
   transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s, background 0.3s;
 }
-.service-card:hover {
+.industry-card:hover {
   border-color: var(--blue); transform: translateY(-3px);
   box-shadow: 0 8px 24px var(--card-shadow);
 }
-.service-icon-wrap {
+.industry-icon-wrap {
   width: 44px; height: 44px; border-radius: 8px;
   background: var(--blue-light); display: flex; align-items: center; justify-content: center;
   margin-bottom: 1.1rem; font-size: 22px; color: var(--blue);
   transition: background 0.3s;
 }
-.service-name { font-size: 15px; font-weight: 600; margin-bottom: 7px; color: var(--text-primary); transition: color 0.3s; }
-.service-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.65; transition: color 0.3s; }
+.industry-name { font-size: 15px; font-weight: 600; margin-bottom: 7px; color: var(--text-primary); transition: color 0.3s; }
+.industry-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.65; transition: color 0.3s; }
 
 /* CONNECT */
 .social-row { display: flex; gap: 12px; flex-wrap: wrap; }
@@ -330,11 +295,20 @@ footer {
 }
 footer span { color: var(--blue); font-weight: 500; }
 
+
+
 /* RESPONSIVE */
 @media (max-width: 720px) {
-  .hero-inner { flex-direction: column; }
-  .hero-right { display: none; }
+  .hero-inner {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-pills { justify-content: center; }
+  .cta-row { justify-content: center; }
   .hero h1 { font-size: 36px; }
+  .hero-badge { margin: 0 auto 1.75rem; }
   nav { padding: 0 1.25rem; }
   .container { padding: 0 1.25rem; }
   .nav-links { gap: 1.25rem; }
@@ -352,7 +326,7 @@ footer span { color: var(--blue); font-weight: 500; }
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="#services">Services</a></li>
+      <li><a href="#industries">Industries</a></li>
       <li><a href="#connect">Connect</a></li>
     </ul>
   </div>
@@ -390,15 +364,7 @@ footer span { color: var(--blue); font-weight: 500; }
         </div>
       </div>
 
-      <!-- RIGHT -->
-      <div class="hero-right">
-        <div class="avatar-card">
-          <div class="avatar-ring"></div>
-          <div class="avatar-glow"></div>
-          <div class="avatar-initials">AA</div>
-        </div>
-        
-      </div>
+    </div>
 
     </div>
   </div>
@@ -437,11 +403,6 @@ footer span { color: var(--blue); font-weight: 500; }
     <p class="section-sub">A well-rounded skill set built across multiple disciplines</p>
     <div class="skills-grid">
       <div class="skill-card">
-        <i class="ti ti-network skill-icon"></i>
-        <div class="skill-name">Computer networking</div>
-        <div class="skill-desc">Deep understanding of internet infrastructure, protocols, and how the web works at its core.</div>
-      </div>
-      <div class="skill-card">
         <i class="ti ti-code skill-icon"></i>
         <div class="skill-name">Web development</div>
         <div class="skill-desc">Building fast, clean, well-structured websites from scratch using modern web technologies.</div>
@@ -456,33 +417,53 @@ footer span { color: var(--blue); font-weight: 500; }
         <div class="skill-name">Creative design</div>
         <div class="skill-desc">Crafting visually compelling designs that communicate clearly and leave a lasting impression.</div>
       </div>
+      <div class="skill-card">
+        <i class="ti ti-pencil skill-icon"></i>
+        <div class="skill-name">Content writing</div>
+        <div class="skill-desc">Creating engaging, SEO-optimized content that ranks well, resonates with audiences, and drives conversions.</div>
+      </div>
+      <div class="skill-card">
+        <i class="ti ti-brand-instagram skill-icon"></i>
+        <div class="skill-name">Social media marketing</div>
+        <div class="skill-desc">Building brand presence and driving engagement across social platforms through strategic content and campaigns.</div>
+      </div>
     </div>
   </section>
 </div>
 
 <hr class="divider">
 
-<!-- SERVICES -->
+<!-- INDUSTRIES -->
 <div class="container">
-  <section id="services">
-    <div class="section-label">Services</div>
-    <div class="section-title">How I can help you</div>
-    <p class="section-sub">End-to-end solutions tailored to your growth goals</p>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon-wrap"><i class="ti ti-code-dots"></i></div>
-        <div class="service-name">Web development</div>
-        <div class="service-desc">Custom websites built with clean code, fast load times, and SEO-ready architecture from day one.</div>
+  <section id="industries">
+    <div class="section-label">Industries</div>
+    <div class="section-title">Who I work with</div>
+    <p class="section-sub">Helping businesses across diverse industries grow their online presence</p>
+    <div class="industries-grid">
+      <div class="industry-card">
+        <div class="industry-icon-wrap"><i class="ti ti-cloud"></i></div>
+        <div class="industry-name">SaaS Companies</div>
+        <div class="industry-desc">Driving organic growth and user acquisition for software-as-a-service products through targeted SEO and content strategy.</div>
       </div>
-      <div class="service-card">
-        <div class="service-icon-wrap"><i class="ti ti-search"></i></div>
-        <div class="service-name">SEO</div>
-        <div class="service-desc">Technical audits, keyword strategy, on-page optimization, and content planning that drives real organic growth.</div>
+      <div class="industry-card">
+        <div class="industry-icon-wrap"><i class="ti ti-building-store"></i></div>
+        <div class="industry-name">Local Businesses</div>
+        <div class="industry-desc">Helping local brands dominate their area through local SEO, Google Business optimization, and community-focused digital marketing.</div>
       </div>
-      <div class="service-card">
-        <div class="service-icon-wrap"><i class="ti ti-speakerphone"></i></div>
-        <div class="service-name">Digital marketing</div>
-        <div class="service-desc">Holistic digital strategy covering content, analytics, and multi-channel campaigns to grow your brand online.</div>
+      <div class="industry-card">
+        <div class="industry-icon-wrap"><i class="ti ti-shopping-cart"></i></div>
+        <div class="industry-name">E-Commerce</div>
+        <div class="industry-desc">Boosting product visibility, traffic, and conversions for online stores through technical SEO and performance-driven campaigns.</div>
+      </div>
+      <div class="industry-card">
+        <div class="industry-icon-wrap"><i class="ti ti-building-bank"></i></div>
+        <div class="industry-name">Financial Institutions</div>
+        <div class="industry-desc">Building trust and authority online for financial brands through compliant, high-quality content and search optimization.</div>
+      </div>
+      <div class="industry-card">
+        <div class="industry-icon-wrap"><i class="ti ti-heart-rate-monitor"></i></div>
+        <div class="industry-name">Healthcare Industries</div>
+        <div class="industry-desc">Improving digital visibility for healthcare providers with accurate, authoritative content that ranks and builds patient trust.</div>
       </div>
     </div>
   </section>
@@ -540,24 +521,6 @@ footer span { color: var(--blue); font-weight: 500; }
     const current = html.getAttribute('data-theme');
     setTheme(current === 'dark' ? 'light' : 'dark');
   }
-
-  // Typing animation
-  const roles = ['SEO Strategy.', 'Web Development.', 'Digital Marketing.', 'Creative Design.', 'Organic Growth.'];
-  let roleIdx = 0, charIdx = 0, deleting = false;
-  function type() {
-    const current = roles[roleIdx];
-    if (!deleting) {
-      typedEl.textContent = current.slice(0, charIdx + 1);
-      charIdx++;
-      if (charIdx === current.length) { deleting = true; setTimeout(type, 1600); return; }
-    } else {
-      typedEl.textContent = current.slice(0, charIdx - 1);
-      charIdx--;
-      if (charIdx === 0) { deleting = false; roleIdx = (roleIdx + 1) % roles.length; }
-    }
-    setTimeout(type, deleting ? 50 : 80);
-  }
-  type();
 </script>
 
 </body>
